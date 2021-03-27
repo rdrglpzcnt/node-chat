@@ -1,5 +1,9 @@
 # node-chat 
-Simple chat with login and registration.
+
+## Description
+sUPER Simple chat made with Node.js.
+You can see who is typing.
+You have to regiter and login.
 
 ## Requirements
 Node.js 11.* or later
