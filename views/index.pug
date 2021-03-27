@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	main#index
+		div.container
+			h1 My chat
+			
+			div
+				p - [x] Registrarse
+				p - [] Iniciar sesion
+				p - [ ] puedes ver quiene está conectado
+				p - [ ] mensajear sin limite alguno
+				p - [ ] compartir imagenes videos url's.
+			
+			p #[a( href=$helpers.url('/auth/login') ) Inicia sesión] o #[a( href=$helpers.url('/auth/register') ) Regístrate]
+		

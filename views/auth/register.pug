@@ -1,0 +1,30 @@
+extends ../layout
+
+block content
+	main#auth.register
+		div.container.container--sm
+			h1 👩‍🚀
+			h2 Regístrate
+
+
+			form(
+				action=$helpers.url('/auth/register')
+				method="post"
+				novalidate
+			)
+				each err in form_errors
+					span.form-error=err.message
+
+				label( for="username" ) Username #[small - piensa algo original]
+					input(type="text" maxlength="50" name="username" id="username" value=old.username)
+
+				label( for="email" ) Email 
+					input(type="email" maxlength="50" name="email" id="email" value=old.email)
+				
+				label( for="password" ) Contraseña #[small - mínimo 8 caracteres]
+					input(type="password" maxlength="100" name="password" id="password")
+
+				label( for="password_confirmation" ) Confirma tu contraseña
+					input(type="password" maxlength="100" name="password_confirmation" id="password_confirmation")
+				
+				button(type="submit") Listo!

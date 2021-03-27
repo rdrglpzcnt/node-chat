@@ -1,0 +1,238 @@
+@import ./_variables.sass
+
+body
+  padding: 50px
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif
+  color: $dark
+  margin: 0
+  padding: 0
+  & *
+	  color: $dark
+	  box-sizing: border-box
+
+.container
+	width: 100%
+	max-width: 900px
+	padding: 0 1rem
+	margin: 0 auto
+
+	&--sm 
+		max-width: 320px
+
+
+a
+  color: #00B7FF
+
+
+h1
+	font-size: 2rem 
+	color: $secundary
+
+h2
+	font-size: 1.5rem
+	color: $primary 
+
+
+
+#index,
+#auth
+	background-color: darken($dark, 20%)
+
+	.container
+		min-height: 100vh
+		display: flex
+		flex-direction: column
+		align-items: center
+		padding-bottom: 4rem
+
+form
+	display: block
+	width: 100%
+
+	label
+		color: $light
+		display: block
+		margin-bottom: 1rem
+
+	input:not([hidden]):not([type=checkbox])
+		display: block
+		width: 100%
+		padding: 1rem
+		margin-top: 1rem
+		// border: 1px solid $dark
+		border: none
+		border-radius: 3px
+		background-color: $dark
+		color: $light
+
+		&:focus
+			background-color: lighten($dark, 10%)
+			// border: 1px solid $primary
+			outline: none
+
+
+	button
+		appearance: none
+		background-color: $secundary
+		color: white
+		font-weight: 600
+		border: none
+		padding: 1rem
+		width: 100%
+		border-radius: 3px
+
+	span.form-error
+		display: block
+		margin-bottom: .5rem
+		color: $secundary
+
+
+#chat
+	display: flex
+	height: 100vh
+	width: 100vw
+	overflow: hidden
+	background-color: $light
+	
+	& * 
+		color: $light
+	// padding: 2rem
+
+	.chat-view
+		position: relative
+		background-color: darken($dark, 20%)
+		height: 100%
+		padding: 2rem 0w
+		// width: 100%
+		flex-grow: 1
+
+
+		.chat-container
+			height: 100%
+			display: flex
+			flex-direction: column
+
+
+			.chat-display
+				position: relative
+				flex-grow: 1
+				padding: 2rem 1rem 0 1rem
+				overflow-y: auto
+
+				.chat-item
+					opacity: 1
+					transition: all .3s ease
+
+					&.hidden
+						margin-left: -8rem
+						opacity: 0
+
+				.chat-message-row
+					
+					&.local
+						text-align: right
+						
+						.chat-message
+							background-color: $light
+							color: $dark
+					
+					&.remote
+						text-align: left
+						
+						.chat-message
+							background-color: lighten($dark, 10%)
+							& > *
+								color: $dark
+						
+					
+					.chat-message
+						display: inline-block
+						margin: 0 0 .5rem 0
+						padding: .5rem
+						border-radius: 3px
+
+				.users-typing
+					position: absolute
+					right: 0
+					bottom: 0
+					padding: 1rem
+					background-color: $secundary
+					opacity: 0
+					transition: all .3s ease
+
+					*
+						color: white
+
+
+					&.active
+						opacity: 1
+
+			.chat-composer
+				// position: absolute
+				// bottom: 0
+				width: 100%
+
+				input
+					display: block
+					width: 100%
+					padding: 1rem
+					margin-top: 1rem
+					border: none
+					color: $dark
+					border-radius: 0
+					background-color: lighten($dark, 20%)
+					transition: all .3s ease
+
+					&:focus
+						outline: none
+						background-color: lighten($dark, 30%)
+
+					// &::-webkit-input-placeholder,
+					// &::-ms-input-placeholder
+					// 	color: $light
+
+		
+		.statusbar
+			top: 0
+			width: 100%
+			position: absolute
+			text-align: center
+			padding: .5rem
+			background-color: $primary
+			color: $dark
+			transition: all .3s ease
+			transition-delay: 1s
+
+			&.hidden
+				margin-top: -4rem
+
+
+	.chat-sidebar
+		// border-left: 1px solid $primary
+		background-color: darken($dark, 10%)
+		width: 100%
+		max-width: 200px
+		height: 100%
+		transition: all .3s ease
+		padding: .5rem
+
+		h3
+			color: $primary
+
+		[data-name=typing]
+			font-size: .8rem
+
+
+
+		&.hidden
+			margin-right: -220px
+
+
+
+.session-message
+	padding: 1rem
+	text-align: right
+
+	&.error
+		// background-color: red
+		color: $secundary

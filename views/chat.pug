@@ -1,0 +1,29 @@
+extends layout
+
+block content
+	input(value=user.username name="username" hidden)
+	main#chat
+		
+		div.chat-view
+			div.statusbar Conectando ...
+			
+			div.chat-container
+				
+				div.chat-display
+					div.users-typing
+				
+				div.chat-composer
+					form#chat-form
+						input#message(autocomplete="off" placeholder="Escribe un mensaje")
+					//- button ❤
+		
+		div.chat-sidebar
+			h3 Usuarios
+			br
+			div#userlist
+			br
+			ul #[li #[a(href=$helpers.url('/auth/logout')) Cerrar sesión]]
+
+block scripts
+	script(src="/socket.io/socket.io.js")
+	script(src="/javascripts/chat-interface.js") 

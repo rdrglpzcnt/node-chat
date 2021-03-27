@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+	main#auth.login
+		div.container.container--sm
+			h1 🚀
+			h2 Inica sesión
+
+			form(
+				action=$helpers.url('/auth/login')
+				method="post"
+			)
+
+				each err in form_errors
+					span.form-error=err.message
+
+				label( for="username" ) Username 
+					input(type="text" maxlength="50" name="username" id="username" value=old.username)
+				
+				label( for="password" ) Contraseña
+					input(type="password" maxlength="100" name="password" id="password")
+				
+				button(type="submit") Entrar
